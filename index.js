@@ -37,14 +37,15 @@ app.get("/", (req, res) => {
   res.send("<h2>hello world</h2>");
 });
 
+// const client = new SteamUser();
+const community = new SteamCommunity();
+const manager = new TradeOfferManager({
+  // steam: client,
+  community: community,
+  language: "en",
+});
+
 app.get("/hello", (req, res) => {
-  const client = new SteamUser();
-  const community = new SteamCommunity();
-  const manager = new TradeOfferManager({
-    steam: client,
-    community: community,
-    language: "en",
-  });
   res.send("<h2>hi hello route</h2>");
 });
 
