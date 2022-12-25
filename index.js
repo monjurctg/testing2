@@ -32,17 +32,22 @@ const logOnOptions = {
   twoFactorCode: SteamTotp.generateAuthCode(`${process.env.SHAREDSECRET}=`),
 };
 
+setTimeout(() => {
+  const client = new SteamUser();
+  const community = new SteamCommunity();
+  const manager = new TradeOfferManager(
+    {
+      steam: client,
+      community: community,
+      language: "en",
+    },
+    2000
+  );
+});
+
 console.log("log", logOnOptions);
 app.get("/", (req, res) => {
   res.send("<h2>hello world</h2>");
-});
-
-const client = new SteamUser();
-const community = new SteamCommunity();
-const manager = new TradeOfferManager({
-  steam: client,
-  community: community,
-  language: "en",
 });
 
 app.get("/hello", (req, res) => {
