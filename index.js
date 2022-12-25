@@ -34,7 +34,7 @@ const logOnOptions = {
 
 console.log("log", logOnOptions);
 
-// const client = new SteamUser();
+const client = new SteamUser();
 // const community = new SteamCommunity();
 // const manager = new TradeOfferManager({
 //   steam: client,
